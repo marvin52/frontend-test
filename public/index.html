@@ -1,14 +1,55 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-
-    <title>R7 FrontEnd Test</title>
-
-    <link rel="stylesheet" href="stylesheets/style.css" media="all">
-  </head>
-  <body>
-      <!-- let's code :D -->
-
-    <script src="javascripts/main.js"></script> 
+    <head>
+        <meta charset="UTF-8">
+        <title>R7 FrontEnd Test</title>
+        <link rel="stylesheet" href="stylesheets/style.min.css" media="all">
+    </head>
+    <body>
+        <!-- let's code :D -->
+        <div class="container">
+            <div class="ranking">
+                <div class="ranking-head">
+                    <h1>Ranking</h1>
+                    <img src="images/logo-fazenda.png" alt="Logo Fazenda">
+                </div>
+                <div class="ranking-body">
+                    <ul id="list-artists">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script id="artists-template" type="text/template">
+        <% for(i in list) %>
+            <li>
+                <div class="photo" position="<%= ( parseInt([i]) + 1 ) %>">
+                    <img src="<%= list[i].picture %>" />
+                </div>
+                <div class="description">
+                    <h1><%= list[i].name %></h1>
+                    <p><%= list[i].description %></p>
+                </div>
+                <div class="hover-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Gostam</td>
+                                <td>Não Gostam</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= list[i].positive %>%</td>
+                                <td><%= list[i].negative %>%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </script>
+        <script src="javascripts/jquery-1.12.3.min.js"></script>
+        <script src="javascripts/underscore-min.js"></script>
+        <script src="javascripts/backbone-min.js"></script>
+        <script src="javascripts/main.min.js"></script>
+    </body>
 </html>
