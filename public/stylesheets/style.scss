@@ -1,0 +1,214 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-Regular.ttf)
+}
+
+$gray-font-color: #E9D9D9;
+$main-gray : #272727;
+$main-red: #BA3533;
+
+body, html {
+  background-color: $main-gray ;
+  padding:0px;
+  margin:0px;
+}
+
+/* Flexbox container */
+.container {
+    font-family: Montserrat;
+    justify-content: center;
+    display: flex;
+
+    /* Ranking container */
+    .ranking{
+        position: relative;
+        width: 370px;
+
+        & {
+            flex-direction: column;
+        }
+
+        .ranking-head {
+            margin-bottom: 20px;
+            position: relative;
+            height: 188px;
+
+            img {
+                position: relative;
+                left: 0px;
+                top: 0px;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                background: white;
+                color:$main-gray ;
+                position: absolute;
+                padding-right: 5%;
+                line-height: 50px;
+                text-align: right;
+                font-size: 30px;
+                bottom: 0px;
+                width: 75%;
+                right: 0px;
+            }
+        }
+
+        .ranking-body {
+
+            background-color:white;
+            margin-left:30px;
+            width:340px;
+
+            ul#list-artists{
+                list-style:none;
+                padding:0px;
+                width:100%;
+                margin:0px;
+
+                li {
+
+                    min-height: 110px;
+                    align-items:center;
+                    flex-direction: row;
+                    cursor:pointer;
+                    display:flex;
+
+                    &>div:not(.hover-info){
+                        display:flex;
+                    }
+
+                    &:nth-child(odd) {
+                       background-color: #F2F0F1;
+                    }
+                    &:hover{
+                        background-color: $main-red;
+                    }
+
+                    .photo{
+                        position: relative;
+                        &:after{
+                            border:1px solid #7D7D7D;
+                            content:attr(position);
+                            border-radius:50%;
+                            background:white;
+                            position:absolute;
+                            text-align: center;
+                            line-height:20px;
+                            color:#7D7D7D;
+                            display:block;
+                            height:20px;
+                            bottom:0px;
+                            width:20px;
+                            right:10px;
+                        }
+                        img {
+                            border: 3px solid $main-red;
+                            border-radius: 50%;
+                            margin: 0px 10px;
+                            height: 60px;
+                            display: flex;
+                            width: 60px;
+                        }
+                    }
+                    &:hover .photo img{
+                        border: 3px solid white;
+                    }
+
+                    .description {
+                        flex-direction: column;
+                        h1{
+                            font-weight: lighter;
+                            color: $main-red;
+                            line-height: 17px;
+                            font-size: 17px;
+                            margin:0px;
+                        }
+                        p{
+                            font-size: .7em;
+                            margin:0px;
+                            color:gray;
+                        }
+                    }
+                    &:hover .description{
+                        h1 {
+                            color:$gray-font-color;
+                        }
+                        p{
+                            color:black
+                        }
+                    }
+
+                    .hover-info{
+                        transition: opacity 0.5s ease;
+                        background: #F8F6F7;
+                        position: absolute;
+                        border-radius:5px;
+                        min-height: 55px;
+                        margin-top:27px;
+                        display: block;
+                        width: 160px;
+                        right: -180px;
+                        opacity:0;
+
+                        &:before{
+                            border: 10px solid transparent;
+                            border-right: 10px solid #F8F6F7;
+                            position: absolute;
+                            display: block;
+                            content: ' ';
+                            left: -20px;
+                            top: 20px;
+                        }
+
+                        table {
+                            border-spacing: 0px;
+                            position: relative;
+                            display: block;
+                            width:100%;
+                            border:0px;
+                        }
+                        thead {
+                            background-color: #BA3533;
+                            tr {
+                                border-radius: 10px 10px 0px 0px;
+                                font-size: 11px;
+                                td{
+                                    text-transform: uppercase;
+                                    color:$gray-font-color;
+                                    font-weight:lighter;
+                                    text-align: center;
+                                    &:first-child{
+                                        border-right:2px solid rgba(0,0,0,.1);
+                                        border-radius: 5px 0px 0px 0px;
+                                        width:60px;
+                                    }
+                                    &:last-child{
+                                        border-radius: 0px 5px 0px 0px;
+                                        width:100px;
+                                    }
+                                }
+                            }
+                        }
+                        tbody{
+                            td{
+                                text-align: center;
+                                line-height: 35px;
+                                font-weight:bold;
+                                color: #909090;
+                                font-size: 24px;
+                                &:first-child{
+                                    border-right:2px solid rgba(0,0,0,.1);
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover .hover-info{
+                        opacity:1;
+                    }
+                }
+            }
+        }
+    }
+}
